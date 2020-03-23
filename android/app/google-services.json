@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "675691721551",
+    "firebase_url": "https://flutter-pushlocal-notification.firebaseio.com",
+    "project_id": "flutter-pushlocal-notification",
+    "storage_bucket": "flutter-pushlocal-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675691721551:android:e9973e1860659db11b0b3a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_pushlocalnotifications"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675691721551-q84r3495e9vnpl2m8rkree6unu84or7v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_pushlocalnotifications",
+            "certificate_hash": "334f8744e4e35c0c94103b64d6ac59825913954b"
+          }
+        },
+        {
+          "client_id": "675691721551-p7876poudp1sua9lkvaqo7voohahrvrk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMMBnkj60E9W9Sqk1n6RuHYIlK5RuAUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675691721551-p7876poudp1sua9lkvaqo7voohahrvrk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
