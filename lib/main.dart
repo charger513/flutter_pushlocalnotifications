@@ -12,22 +12,27 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+  final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
+
   @override
   void initState() {
     super.initState();
     final PushNotificationProvider pushProvider = new PushNotificationProvider();
     pushProvider.initNotifications();
 
-    pushProvider.mensajes.listen((argumento) {
-      // Navigator.pushNamed(context, 'mensaje');
-      print('Arguemnto del push');
-      print(argumento);
+    pushProvider.mensajes.listen((data) {
+      // Navigator.pushNamed(context, 'mensaje'); No funciona así
+      print('Argumento del push');
+      print(data);
+
+      navigatorKey.currentState.pushNamed('mensaje', arguments: data);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'Push Local',
       initialRoute: 'home',
       routes: {

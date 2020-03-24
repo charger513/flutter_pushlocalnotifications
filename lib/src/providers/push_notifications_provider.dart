@@ -8,6 +8,8 @@ class PushNotificationProvider {
 
   final _mensajesStreamController = StreamController<String>.broadcast();
 
+  int _contador = 0;
+
   Stream<String> get mensajes => _mensajesStreamController.stream;
 
   initNotifications() {
@@ -22,15 +24,18 @@ class PushNotificationProvider {
 
     _firebaseMessaging.configure(
       onMessage: (info) async {
-        print('====== On Message ======');
-        print(info);
+        if(_contador % 2 == 0){ // Hay un bug que hace que dispare 2 notificaciones
+          print('====== On Message ======');
+          print(info);
 
-        String argumento = 'no-data';
-        if(Platform.isAndroid) {
-          argumento = info['data']['comida'] ?? 'no-data';
+          String argumento = 'no-data';
+          if(Platform.isAndroid) {
+            argumento = info['data']['comida'] ?? 'no-data';
+          }
+
+          _mensajesStreamController.sink.add(argumento);
+          _contador++;
         }
-
-        _mensajesStreamController.sink.add(argumento);
       },
       onLaunch: (info) async {
         print('====== On Launch ======');
@@ -39,6 +44,13 @@ class PushNotificationProvider {
       onResume: (info) async {
         print('====== On Resume ======');
         print(info);
+
+        String argumento = 'no-data';
+        if(Platform.isAndroid) {
+          argumento = info['data']['comida'] ?? 'no-data';
+        }
+
+        _mensajesStreamController.sink.add(argumento);
       },
     );
   }
